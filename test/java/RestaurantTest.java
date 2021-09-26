@@ -72,6 +72,12 @@ class RestaurantTest {
         restaurant.displayDetails();
     }
 
+    @Test()
+    public void find_Order_Total_should_display_the_total_price_of_selected_items(){
+        assertEquals(restaurant.findOrderTotal("Sweet corn soup"),119);
+        assertEquals(restaurant.findOrderTotal("Vegetable lasagne"),388);
+    }
+
     @Test
     public void display_details_should_not_be_null(){
         assertEquals(restaurant.getName(),"Amelie's cafe");
