@@ -9,6 +9,7 @@ public class Restaurant {
     public LocalTime openingTime;
     public LocalTime closingTime;
     private List<Item> menu = new ArrayList<Item>();
+    private Double amount = 0.0;
 
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         this.name = name;
@@ -37,6 +38,15 @@ public class Restaurant {
                 return item;
         }
         throw new itemNotFoundException(itemName);
+    }
+
+    public Double findOrderTotal(String itemName){
+        for(Item item: menu) {
+            if (item.getName().equals(itemName)) {
+                amount = amount + item.getPrice();
+            }
+        }
+        return amount;
     }
 
     public void addToMenu(String name, int price) {
